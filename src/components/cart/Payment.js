@@ -75,7 +75,7 @@ const Payment = () => {
                 }
             }
 
-            res = await axios.post('https://petstore-backend-hyyl.onrender.com/api/v1/payment/process', paymentData, config)
+            res = await axios.post('https://petstore-client.onrender.com/api/v1/payment/process', paymentData, config)
             console.log(res);
             const clientSecret = res.data.client_secret;
 

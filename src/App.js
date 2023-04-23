@@ -49,7 +49,7 @@ function App() {
     store.dispatch(loadUser(""))
      
     async function getStripeApiKey(){
-      const {data} = await axios.get('https://petstore-backend-hyyl.onrender.com/api/v1/stripeapi');
+      const {data} = await axios.get('https://petstore-client.onrender.com/api/v1/stripeapi');
       setStripeAPIKey(data.stripeAPIKey)
     }
     

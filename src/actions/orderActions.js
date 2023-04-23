@@ -41,7 +41,7 @@ export const createOrder = (order_) => async (dispatch, getState) => {
             "order" : order_.order,
             "user"  : order_.user
         }
-        const { data } = await axios.post('https://petstore-backend-hyyl.onrender.com/api/v1/order/new', val, config)
+        const { data } = await axios.post('https://petstore-client.onrender.com/api/v1/order/new', val, config)
 
         dispatch({
             type: CREATE_ORDER_SUCCESS,
@@ -65,7 +65,7 @@ export const myOrders = (user) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-        const { data } = await axios.post('https://petstore-backend-hyyl.onrender.com/api/v1/orders/me',user, config)
+        const { data } = await axios.post('https://petstore-client.onrender.com/api/v1/orders/me',user, config)
         console.log("Data: ",data);
         dispatch({
             type: MY_ORDERS_SUCCESS,
@@ -86,7 +86,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
 
         dispatch({ type: ORDER_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`https://petstore-backend-hyyl.onrender.com/api/v1/order/${id}`)
+        const { data } = await axios.get(`https://petstore-client.onrender.com/api/v1/order/${id}`)
 
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
@@ -113,7 +113,7 @@ export const allOrders = () => async (dispatch) => {
 
         dispatch({ type: ALL_ORDERS_REQUEST });
 
-        const { data } = await axios.get(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/orders`)
+        const { data } = await axios.get(`https://petstore-client.onrender.com/api/v1/admin/orders`)
 
         dispatch({
             type: ALL_ORDERS_SUCCESS,
@@ -139,7 +139,7 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/order/${id}`, orderData, config)
+        const { data } = await axios.put(`https://petstore-client.onrender.com/api/v1/admin/order/${id}`, orderData, config)
 
         dispatch({
             type: UPDATE_ORDER_SUCCESS,
@@ -159,7 +159,7 @@ export const deleteOrder = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_ORDER_REQUEST })
 
-        const { data } = await axios.delete(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/order/${id}`)
+        const { data } = await axios.delete(`https://petstore-client.onrender.com/api/v1/admin/order/${id}`)
 
         dispatch({
             type: DELETE_ORDER_SUCCESS,

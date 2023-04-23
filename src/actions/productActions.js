@@ -40,21 +40,21 @@ export const getProducts = (keyword = '',currentPage=1,price,category,animal,rat
    
     dispatch({type: ALL_PRODUCTS_REQUEST})
     console.log('Animal',animal);
-    let link = `https://petstore-backend-hyyl.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}`
+    let link = `https://petstore-client.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}`
      
     if(category.trim()){
-        link = `https://petstore-backend-hyyl.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&category=${category}`
+        link = `https://petstore-client.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&category=${category}`
     }
 
     if(animal.trim()){
         // console.log(animal);
-        link = `https://petstore-backend-hyyl.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&animal=${animal}`
+        link = `https://petstore-client.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&animal=${animal}`
         // console.log(link);
     }
 
     if(category.trim()){
         if(animal.trim()){
-        link = `https://petstore-backend-hyyl.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&animal=${animal}&category=${category}`
+        link = `https://petstore-client.onrender.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gt]=${price[0]}&ratings[gte]=${rating}&animal=${animal}&category=${category}`
         }
     }
     console.log(link);
@@ -84,7 +84,7 @@ export const getProductDetails = (id) => async (dispatch) => {
       
        dispatch({type: PRODUCTS_DETAILS_REQUEST})
    
-       const { data } = await axios.get(`https://petstore-backend-hyyl.onrender.com/api/v1/product/${id}`)
+       const { data } = await axios.get(`https://petstore-client.onrender.com/api/v1/product/${id}`)
     //    console.log(data);
        dispatch({
            type:PRODUCTS_DETAILS_SUCCESS,
@@ -111,7 +111,7 @@ export const getProductDetails = (id) => async (dispatch) => {
             }
         }
         console.log(reviewData);
-        const { data } = await axios.put(`https://petstore-backend-hyyl.onrender.com/api/v1/review`, reviewData, config)
+        const { data } = await axios.put(`https://petstore-client.onrender.com/api/v1/review`, reviewData, config)
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -139,7 +139,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/product/${id}`, productData, config)
+        const { data } = await axios.put(`https://petstore-client.onrender.com/api/v1/admin/product/${id}`, productData, config)
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -160,7 +160,7 @@ export const getAdminProducts= (id) => async (dispatch) => {
       
        dispatch({type: ADMIN_PRODUCTS_REQUEST})
    
-       const { data } = await axios.get(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/products`)
+       const { data } = await axios.get(`https://petstore-client.onrender.com/api/v1/admin/products`)
        console.log(data);
        dispatch({
            type:ADMIN_PRODUCTS_SUCCESS,
@@ -190,7 +190,7 @@ export const getAdminProducts= (id) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/product/new`, productData, config)
+        const { data } = await axios.post(`https://petstore-client.onrender.com/api/v1/admin/product/new`, productData, config)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -211,7 +211,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_PRODUCT_REQUEST })
 
-        const { data } = await axios.delete(`https://petstore-backend-hyyl.onrender.com/api/v1/admin/product/${id}`)
+        const { data } = await axios.delete(`https://petstore-client.onrender.com/api/v1/admin/product/${id}`)
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -231,7 +231,7 @@ export const getProductReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`https://petstore-backend-hyyl.onrender.com/api/v1/reviews?id=${id}`)
+        const { data } = await axios.get(`https://petstore-client.onrender.com/api/v1/reviews?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -252,7 +252,7 @@ export const deleteReview = (id, productId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`https://petstore-backend-hyyl.onrender.com/api/v1/reviews?id=${id}&productId=${productId}`)
+        const { data } = await axios.delete(`https://petstore-client.onrender.com/api/v1/reviews?id=${id}&productId=${productId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,
