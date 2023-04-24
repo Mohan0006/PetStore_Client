@@ -189,7 +189,7 @@ export const getAdminProducts= (id) => async (dispatch) => {
                 'Content-Type': 'application/json'
             }
         }
-
+        console.log(productData);
         const { data } = await axios.post(`https://petstore-client.onrender.com/api/v1/admin/product/new`, productData, config)
 
         dispatch({

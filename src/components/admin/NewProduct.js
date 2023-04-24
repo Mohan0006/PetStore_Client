@@ -66,7 +66,7 @@ const NewProduct = () => {
         formData.set('animal', animal);
         formData.set('stock', stock);
         formData.set('seller', seller);
-
+        console.log(images);
         images.forEach(image => {
             formData.append('images', image)
         })
