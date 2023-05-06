@@ -1,4 +1,4 @@
-# =======> FRONTEND/CLIENT
+# FRONTEND/CLIENT
 
 1. Open the frontend folder in the VS Code
 
