@@ -12,7 +12,7 @@
 
 react app will start at localhost:3000
 
-# ******************** DEPLOYED URL OF FRONTEND **************************
+# *** DEPLOYED URL OF FRONTEND ***
 
   1. Open the url in the browser : https://petstore-webapp.onrender.com (Deployed On Render)
   
